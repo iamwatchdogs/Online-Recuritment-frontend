@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "home": {
+    "online": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/home",
+            "outputPath": "dist/online",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -33,11 +33,17 @@
             "assets": [
               "src/favicon.ico",
               "src/assets"
+              
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/animate.css/animate.min.css"
+
             ],
-            "scripts": [],
+            "scripts": [
+                "node_modules/jquery/dist/jquery.min.js"
+            ],
             "server": "src/main.server.ts",
             "prerender": true,
             "ssr": {
@@ -72,10 +78,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "home:build:production"
+              "buildTarget": "online:build:production"
             },
             "development": {
-              "buildTarget": "home:build:development"
+              "buildTarget": "online:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +89,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "home:build"
+            "buildTarget": "online:build"
           }
         },
         "test": {
@@ -99,15 +105,20 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/animate.css/animate.min.css"
+
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js"
+            ]
           }
         }
       }
     }
   },
   "cli": {
-    "analytics": "00755202-53b6-4594-9391-8b94dcf2fe0a"
+    "analytics": "5d45f00d-69f9-4b57-948c-4b9ac8156009"
   }
 }
