@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators,AbstractControl,ValidationErrors } from '@angular/forms';
 import { Router } from '@angular/router';
-
+ import { EmailService } from './Email.service';
 import { strongPasswordValidator } from './custom-validators'; // Import the custom validator
 
 @Component({
@@ -9,16 +9,21 @@ import { strongPasswordValidator } from './custom-validators'; // Import the cus
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
+
 export class SignupComponent implements OnInit {
   signupForm!: FormGroup;
+  userEmail: string = '';
+  //generatedOTP: string = '';
   countries: string[] = ['INDIA', 'UK', 'USA']; // List of valid nationalities
   genderOptions = [
     { label: 'Male', value: 'male' },
     { label: 'Female', value: 'female' },
     { label: 'Other', value: 'other' }
   ];
+;
 
-  constructor(private router: Router,private fb: FormBuilder) { }
+
+  constructor(private router: Router,private fb: FormBuilder, private emailService: EmailService ) { }
 
   ngOnInit(): void {
     this.signupForm = this.fb.group({
@@ -48,16 +53,26 @@ export class SignupComponent implements OnInit {
 
 
   signup() {
+   
     if (this.signupForm.valid) {
+      const email = this.signupForm.value.email;
+      this.emailService.sendEmail(email);
       console.log('Form submitted successfully!');
+      this.navigateToOtp(email);
       // Add your signup logic here
     } else {
       console.log('Form is invalid. Please check the fields.');
+  
     }
   }
   navigateToLogin() {
     // Navigate to the login page
     this.router.navigate(['/login']);
+  }
+
+navigateToOtp(email:string) {
+  
+   this.router.navigate(['/otpverification'] , { queryParams: { email: email } });
   }
 
 }

@@ -15,6 +15,10 @@ import { SignupComponent } from './signup/signup.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { OtpVerificationComponent } from './otp-verification/otp-verification.component';
+import { EmailService } from './signup/Email.service';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +26,9 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     LoginComponent,
     SignupComponent,
     WelcomeComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    OtpVerificationComponent,
+    ResetpasswordComponent
     // Declare LoginComponent here
   ],
   imports: [
@@ -37,7 +43,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     MatIconModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [EmailService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
