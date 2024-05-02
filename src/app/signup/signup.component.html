@@ -1,3 +1,4 @@
+
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -7,8 +8,9 @@
                     <div class="col-md-3 register-left">
                         <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
                         <h3>Welcome</h3>
+                        
                         <p>Unlock your potential. Join us and let your career soar.</p>
-                        <input type="submit" (click)="navigateToLogin()" name="" value="Login"/><br/>
+                        <input type="submit" class="custom-login-btn" (click)="navigateToLogin()" name="" value="Login"/><br/>
                     </div>
                     <div class="col-md-9 register-right">
                         <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
@@ -83,7 +85,7 @@
                                       </div>
 
                                       <div class="form-group">
-                                        <input type="email" class="form-control" formControlName="email" placeholder="Enter your email">
+                                        <input type="email" id="email" class="form-control" formControlName="email" placeholder="Enter your email"  required>
                                         <div *ngIf="signupForm.get('email')?.errors?.['required'] && signupForm.get('email')?.touched" class="invalid-feedback d-block">Email is required.</div>
                                         <div *ngIf="signupForm.get('email')?.errors?.['email'] && signupForm.get('email')?.touched" class="invalid-feedback d-block">Invalid email format.</div>
                                       </div>
@@ -112,7 +114,8 @@
  </div>
  
  <div class="center-btn form-group" >
-  <button type="submit" [disabled]="signupForm.invalid" class="btn btn-primary btn-block">Sign Up</button>
+  
+  <button type="submit" [disabled]="signupForm.invalid" class="btn btn-primary btn-block"  >Sign Up</button>
  </div>
 </div>
 </div>

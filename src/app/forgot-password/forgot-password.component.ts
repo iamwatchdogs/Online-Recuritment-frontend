@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { EmailService } from '../signup/Email.service';
+import { ActivatedRoute,Router } from '@angular/router';
 
 @Component({
   selector: 'app-forgot-password',
@@ -7,23 +9,47 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ForgotPasswordComponent implements OnInit {
 [x: string]: any;
+enteredOtp:string='';
+storedOTP:string='';
+email: string='';
 emailOrMobilenumber: string = '';
-  otp: string = '';
+  otp: string ='';
   otpSent: boolean = false;
 
   person: any = {};
   
-  constructor() { }
+  constructor(private route: ActivatedRoute, private router: Router ,private emailService: EmailService) { }
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      this.email= params['email'];
+    });
+    this.storedOTP = this.emailService.getGeneratedOTP();
+    console.log(this.storedOTP)
   }
 
   sendOTP() {
     // Implement logic to send OTP
-    this.otpSent = true; // For demonstration, assuming OTP is sent successfully
+    this.otpSent = true;
+    this.emailService.sendEmail(this.emailOrMobilenumber);
+   
   }
 
   resetPassword() {
     // Implement logic to reset password
+    if (this.otp === this.emailService.getGeneratedOTP()) {
+      // Correct OTP, perform further actions if needed
+      console.log('Correct OTP');
+      this.navigateToreset();
+
+    } else {
+      // Incorrect OTP, display error message
+      console.log('Incorrect OTP');
+      alert('Incorrect OTP');
+    }
   }
+  navigateToreset() {
+    // Navigate to the login page
+    this.router.navigate(['/resetpassword']);
+  }
 }
