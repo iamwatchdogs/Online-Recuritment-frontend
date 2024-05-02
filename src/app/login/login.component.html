@@ -71,6 +71,20 @@
                   Password must be at least 6 characters.
                 </div>
               </div>
+            </div>
+            <div class="md-3">
+              <label for="role-type" class="form-label"> Role Type </label>
+              <select
+                name="roleType"
+                [(ngModel)]="roleType"
+                class="form-select"
+                required
+              >
+                <option value="job-availability">Job availability</option>
+                <option value="appointment">Schedule Appointment</option>
+              </select>
+            </div>
+            <div class="md-3">
               <p class="forgot-password">
                 <a routerLink="/forgotpassword">Forgot Password</a>
               </p>

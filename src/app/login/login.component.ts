@@ -6,19 +6,22 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  "username": string = '';
-  "password": string = '';
-email: any;
-  constructor(private router: Router) { }
+  'username': string = '';
+  'password': string = '';
+  email: any;
+  roleType: string = '';
+  constructor(private router: Router) {}
 
   login() {
     // Here you can perform authentication logic
     console.log('Username:', this['username']);
     console.log('Password:', this['password']);
-    this.router.navigate(['/job-availability']);
+    if (this.roleType === 'job-availability') {
+      this.router.navigate(['/job-availability']);
+    }
   }
   navigateToSignUp() {
     this.router.navigate(['/signup']);
