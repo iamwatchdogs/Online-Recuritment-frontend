@@ -18,6 +18,7 @@ email: any;
     // Here you can perform authentication logic
     console.log('Username:', this['username']);
     console.log('Password:', this['password']);
+    this.router.navigate(['/job-availability']);
   }
   navigateToSignUp() {
     this.router.navigate(['/signup']);
