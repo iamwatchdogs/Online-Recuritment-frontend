@@ -20,8 +20,8 @@ export class OtpVerificationComponent implements OnInit {
     // Get the email address from query parameters
     this.route.queryParams.subscribe(params => {
       this.email = params['email'];
-    });
 
+    });
    
     this.storedOTP = this.emailService.getGeneratedOTP();
   }
@@ -31,7 +31,11 @@ export class OtpVerificationComponent implements OnInit {
     if (this.enteredOtp === this.storedOTP) {
       // Correct OTP, perform further actions if needed
       console.log('Correct OTP');
+      this.emailService.sendRole(this.email);
+      // this.navigateToRoleId(this.email);
       alert('email verify');
+      this.navigateToLogin();
+
     } else {
       // Incorrect OTP, display error message
       console.log('Incorrect OTP');
@@ -45,4 +49,10 @@ export class OtpVerificationComponent implements OnInit {
     console.log('OTP resent successfully!');
     
 }
+
+navigateToLogin() {
+  // Navigate to the login page
+  this.router.navigate(['/login']);
+  }
+
 }

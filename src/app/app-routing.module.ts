@@ -18,11 +18,8 @@ const routes: Routes = [
   {path:'otpverification',component:OtpVerificationComponent},
   {path:'resetpassword',component:ResetpasswordComponent},
   {path:'job-availability',component:JobAvailabilityComponent},
-  // Define other routes here
-  // Example:
-  // { path: 'dashboard', component: DashboardComponent },
-  // { path: 'profile', component: ProfileComponent },
-  // { path: '**', component: PageNotFoundComponent } // Handle 404 not found
+
+ 
 ];
 
 @NgModule({

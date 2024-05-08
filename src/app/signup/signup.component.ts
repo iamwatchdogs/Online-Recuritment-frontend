@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators,AbstractControl,ValidationErrors } from '@angular/forms';
 import { Router } from '@angular/router';
  import { EmailService } from './Email.service';
 import { strongPasswordValidator } from './custom-validators'; // Import the custom validator
+import { OtpVerificationComponent } from '../otp-verification/otp-verification.component';
 
 @Component({
   selector: 'app-signup',
@@ -12,6 +13,7 @@ import { strongPasswordValidator } from './custom-validators'; // Import the cus
 
 export class SignupComponent implements OnInit {
   signupForm!: FormGroup;
+  @ViewChild(OtpVerificationComponent) OtpVerificationComponent!: OtpVerificationComponent;
   userEmail: string = '';
   //generatedOTP: string = '';
   countries: string[] = ['INDIA', 'UK', 'USA']; // List of valid nationalities
@@ -27,13 +29,14 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.signupForm = this.fb.group({
-      username: ['', [Validators.required,Validators.minLength(3)]],
+      // username: ['', [Validators.required,Validators.minLength(3)]],
       address:['',Validators.required],
       fullName: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
       phoneNumber: ['', [Validators.required, Validators.pattern('[0-9]{10}')]],
       gender: ['', Validators.required],
       nationality: ['', Validators.required],
+      role: ['', Validators.required],
       dob: ['', Validators.required],
       password: ['', [Validators.required,  strongPasswordValidator()]],
       confirmPassword: ['', Validators.required]
@@ -55,16 +58,22 @@ export class SignupComponent implements OnInit {
   signup() {
    
     if (this.signupForm.valid) {
+      const role = this.signupForm.value.role;
+      
+
+      this.emailService.receiveRole(role);
+      
       const email = this.signupForm.value.email;
       this.emailService.sendEmail(email);
+      
       console.log('Form submitted successfully!');
       this.navigateToOtp(email);
       // Add your signup logic here
     } else {
       console.log('Form is invalid. Please check the fields.');
-  
     }
   }
+
   navigateToLogin() {
     // Navigate to the login page
     this.router.navigate(['/login']);
