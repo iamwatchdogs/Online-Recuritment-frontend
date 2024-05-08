@@ -30,7 +30,7 @@ import { JobAvailabilityComponent } from './job-availability/job-availability.co
     ForgotPasswordComponent,
     OtpVerificationComponent,
     ResetpasswordComponent,
-   
+
     JobAvailabilityComponent
     // Declare LoginComponent here
   ],

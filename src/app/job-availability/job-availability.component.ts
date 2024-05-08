@@ -45,4 +45,4 @@ export class JobAvailabilityComponent {
   submit() {
     console.log(this.jobAvailabilityForm.value);
   }
-}
+

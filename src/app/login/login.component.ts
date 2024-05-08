@@ -6,17 +6,15 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  "username": string = '';
-  "password": string = '';
-  showUniqueIdInput: boolean = false;
-  uniqueId: string = '';
+  'username': string = '';
+  'password': string = '';
+  email: any;
+  roleType: string = '';
+  constructor(private router: Router) {}
 
-email: any;
-selectedRole: any;
-  constructor(private router: Router) { }
 
   onRoleChange() {
     // Show the unique ID input box if "Employee" or "Student" is selected
@@ -27,6 +25,9 @@ selectedRole: any;
     // Here you can perform authentication logic
     console.log('Username:', this['username']);
     console.log('Password:', this['password']);
+    if (this.roleType === 'job-availability') {
+      this.router.navigate(['/job-availability']);
+    }
   }
   navigateToSignUp() {
     this.router.navigate(['/signup']);
