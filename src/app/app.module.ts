@@ -18,6 +18,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { OtpVerificationComponent } from './otp-verification/otp-verification.component';
 import { EmailService } from './signup/Email.service';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
+import { JobAvailabilityComponent } from './job-availability/job-availability.component';
 
 
 @NgModule({
@@ -28,7 +29,9 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
     WelcomeComponent,
     ForgotPasswordComponent,
     OtpVerificationComponent,
-    ResetpasswordComponent
+    ResetpasswordComponent,
+   
+    JobAvailabilityComponent
     // Declare LoginComponent here
   ],
   imports: [

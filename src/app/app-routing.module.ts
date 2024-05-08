@@ -6,6 +6,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { OtpVerificationComponent } from './otp-verification/otp-verification.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
+import { JobAvailabilityComponent } from './job-availability/job-availability.component';
 // Import other components you want to route to
 
 const routes: Routes = [
@@ -15,7 +16,9 @@ const routes: Routes = [
   {path: 'welcome', component:WelcomeComponent},
   {path:'forgotpassword', component:ForgotPasswordComponent},
   {path:'otpverification',component:OtpVerificationComponent},
-  {path:'resetpassword',component:ResetpasswordComponent}
+  {path:'resetpassword',component:ResetpasswordComponent},
+  {path:'job-availability',component:JobAvailabilityComponent},
+
   // Define other routes here
   // Example:
   // { path: 'dashboard', component: DashboardComponent },
