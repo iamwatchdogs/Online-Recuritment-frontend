@@ -13,14 +13,14 @@ export class LoginComponent {
   'password': string = '';
   email: any;
   roleType: string = '';
-  showUniqueIdInput:boolean = false;
+  showUniqueIdInput: boolean = false;
   selectedRole: string = '';
   constructor(private router: Router) {}
 
-
   onRoleChange() {
     // Show the unique ID input box if "Employee" or "Student" is selected
-    this.showUniqueIdInput = this.selectedRole === 'emp' || this.selectedRole === 'std';
+    this.showUniqueIdInput =
+      this.selectedRole === 'emp' || this.selectedRole === 'std';
   }
 
   login() {
@@ -35,7 +35,6 @@ export class LoginComponent {
     this.router.navigate(['/signup']);
   }
 }
-
 
 // login.component.ts
 // import { Component } from '@angular/core';

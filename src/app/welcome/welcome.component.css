@@ -1,8 +1,7 @@
 * {
   margin: 0;
-  padding: 0;   
+  padding: 0;
   box-sizing: border-box;
-      
 }
 
 body,
@@ -16,7 +15,6 @@ header {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100% 100%;
-  
 }
 
 /* main-header start */
@@ -77,7 +75,6 @@ header {
 
 .main-header.fixed-nav #mainMenu li > a::before {
   background: #000;
-  
 }
 
 .main-header {
@@ -194,10 +191,10 @@ header {
   .banner {
     padding-top: 150px;
   }
-  .dropdown-toggle{
+  .dropdown-toggle {
     padding-right: 55px;
   }
-  .dropdown-content{
+  .dropdown-content {
     margin-left: 47%;
   }
 }
@@ -256,13 +253,13 @@ header {
   font-size: larger;
   text-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
 }
-@media (max-width: 321px){
-.banner p{
-  display: none;
-}
-.search-job {
-  margin-top:-20px;
-}
+@media (max-width: 321px) {
+  .banner p {
+    display: none;
+  }
+  .search-job {
+    margin-top: -20px;
+  }
 }
 /* search bar */
 
@@ -271,10 +268,10 @@ header {
   margin: -50px 6% 50px;
   background-image: linear-gradient(to right, #b3b3b3, #57606f);
 }
-@media (max-width: 514px){
-.search-job {
-  margin-top:-15px;
-}
+@media (max-width: 514px) {
+  .search-job {
+    margin-top: -15px;
+  }
 }
 .search-job .form-control {
   max-width: 250px;
@@ -441,19 +438,19 @@ h5 {
 }
  */
 
-
 .description {
-    overflow: hidden; 
-    height: 0; opacity: 0;
-    transition: height 0ms 400ms, opacity 400ms 0ms;
+  overflow: hidden;
+  height: 0;
+  opacity: 0;
+  transition: height 0ms 400ms, opacity 400ms 0ms;
 }
-.company-details :hover .description{
-    height: auto; opacity: 1;
-    transition: height 0ms 0ms, opacity 600ms 0ms;
+.company-details :hover .description {
+  height: auto;
+  opacity: 1;
+  transition: height 0ms 0ms, opacity 600ms 0ms;
 }
 
-
-.bookmark{
+.bookmark {
   color: #000 !important;
   float: right;
   display: inline-flex;
@@ -461,34 +458,29 @@ h5 {
   cursor: pointer;
 }
 
-.bookmark p{
+.bookmark p {
   margin-left: 5px;
-    font-size: 20px;
-    cursor: pointer;
-
+  font-size: 20px;
+  cursor: pointer;
 }
 .fa-heart-o:before {
-    content: "\f08a";
-    margin-right: 8px;
-      font-size: 20px;
-      cursor: pointer;
-      
-    color: rgb(33, 33, 226) !important;
+  content: "\f08a";
+  margin-right: 8px;
+  font-size: 20px;
+  cursor: pointer;
 
+  color: rgb(33, 33, 226) !important;
 }
-.fa-heart-o:before .bookmark{
+.fa-heart-o:before .bookmark {
   color: rgb(33, 33, 226) !important;
 }
 .fa-heart:before {
-    content: "\f004";
-    margin-right: 8px;
-      font-size: 20px;
-      cursor: pointer;
-      color: rgb(33, 33, 226) !important;
+  content: "\f004";
+  margin-right: 8px;
+  font-size: 20px;
+  cursor: pointer;
+  color: rgb(33, 33, 226) !important;
 }
-
-
-
 
 .job-update small {
   background: #efefef;

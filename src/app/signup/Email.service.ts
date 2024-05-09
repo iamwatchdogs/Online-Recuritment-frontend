@@ -1,23 +1,20 @@
-
-
 import * as Email from '@emailjs/browser';
 import { Injectable, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class EmailService implements OnInit{
-  
+export class EmailService implements OnInit {
   userEmail: string = '';
   generatedOTP: string = 'null';
-  generatedRoleID:string='';
-  selectedRole: string='';
+  generatedRoleID: string = '';
+  selectedRole: string = '';
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     // Get the email address from query parameters
-    this.route.queryParams.subscribe(params => {
+    this.route.queryParams.subscribe((params) => {
       this.selectedRole = params['selectedRole'];
       console.log(this.selectedRole);
     });
@@ -33,21 +30,23 @@ export class EmailService implements OnInit{
 
     if (this.selectedRole === 'student') {
       // Generate a random 6-digit OTP prefixed with "STD"
-      this.generatedRoleID = 'STD' + Math.floor(100000 + Math.random() * 900000).toString();
+      this.generatedRoleID =
+        'STD' + Math.floor(100000 + Math.random() * 900000).toString();
     } else {
       // Generate a random 6-digit OTP for other roles
-      this.generatedRoleID = 'EMP' + Math.floor(100000 + Math.random() * 900000).toString();
+      this.generatedRoleID =
+        'EMP' + Math.floor(100000 + Math.random() * 900000).toString();
     }
   }
 
-  sendRole(recipientEmail: string ) {
-    this.generateRoleID(); 
+  sendRole(recipientEmail: string) {
+    this.generateRoleID();
 
     const templateParams = {
       from_name: 'Krish',
       to_name: recipientEmail,
       subject: 'OTP Verification',
-      message_html: `Your RoleID is: ${this.generatedRoleID}`
+      message_html: `Your RoleID is: ${this.generatedRoleID}`,
     };
 
     const publicKey = 'putPbNfjUPBbICWr1'; // Replace with your EmailJS public key
@@ -73,7 +72,7 @@ export class EmailService implements OnInit{
       from_name: 'Krish',
       to_name: recipientEmail,
       subject: 'OTP Verification',
-      message_html: `Your OTP is: ${this.generatedOTP}`
+      message_html: `Your OTP is: ${this.generatedOTP}`,
     };
 
     const publicKey = 'putPbNfjUPBbICWr1'; // Replace with your EmailJS public key

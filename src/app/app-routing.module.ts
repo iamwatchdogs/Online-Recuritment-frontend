@@ -13,17 +13,15 @@ const routes: Routes = [
   { path: '', redirectTo: '/welcome', pathMatch: 'full' }, // Redirect to the login page by default
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  {path: 'welcome', component:WelcomeComponent},
-  {path:'forgotpassword', component:ForgotPasswordComponent},
-  {path:'otpverification',component:OtpVerificationComponent},
-  {path:'resetpassword',component:ResetpasswordComponent},
-  {path:'job-availability',component:JobAvailabilityComponent},
-
- 
+  { path: 'welcome', component: WelcomeComponent },
+  { path: 'forgotpassword', component: ForgotPasswordComponent },
+  { path: 'otpverification', component: OtpVerificationComponent },
+  { path: 'resetpassword', component: ResetpasswordComponent },
+  { path: 'job-availability', component: JobAvailabilityComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -20,7 +20,6 @@ import { EmailService } from './signup/Email.service';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 import { JobAvailabilityComponent } from './job-availability/job-availability.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +30,7 @@ import { JobAvailabilityComponent } from './job-availability/job-availability.co
     OtpVerificationComponent,
     ResetpasswordComponent,
 
-    JobAvailabilityComponent
+    JobAvailabilityComponent,
     // Declare LoginComponent here
   ],
   imports: [
@@ -44,9 +43,9 @@ import { JobAvailabilityComponent } from './job-availability/job-availability.co
     MatButtonModule,
     MatFormFieldModule,
     MatIconModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  providers: [EmailService ],
-  bootstrap: [AppComponent]
+  providers: [EmailService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

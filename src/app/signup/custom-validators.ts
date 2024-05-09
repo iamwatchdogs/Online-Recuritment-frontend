@@ -12,11 +12,18 @@ export function strongPasswordValidator(): ValidatorFn {
     const hasUppercase = /[A-Z]/.test(value);
     const hasLowercase = /[a-z]/.test(value);
     const hasNumber = /[0-9]/.test(value);
-    const hasSpecialCharacter = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(value);
+    const hasSpecialCharacter = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(
+      value
+    );
     const isLongEnough = value.length >= 8;
 
     // Check if all criteria are met
-    const isValid = hasUppercase && hasLowercase && hasNumber && hasSpecialCharacter && isLongEnough;
+    const isValid =
+      hasUppercase &&
+      hasLowercase &&
+      hasNumber &&
+      hasSpecialCharacter &&
+      isLongEnough;
 
     // Return validation errors if criteria are not met
     return isValid ? null : { strongPassword: true };
