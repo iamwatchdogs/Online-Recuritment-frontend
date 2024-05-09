@@ -13,6 +13,8 @@ export class LoginComponent {
   'password': string = '';
   email: any;
   roleType: string = '';
+  showUniqueIdInput:boolean = false;
+  selectedRole: string = '';
   constructor(private router: Router) {}
 
 

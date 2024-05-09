@@ -46,3 +46,4 @@ export class JobAvailabilityComponent {
     console.log(this.jobAvailabilityForm.value);
   }
 
+}
